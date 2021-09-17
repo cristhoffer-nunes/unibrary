@@ -37,4 +37,4 @@ Informe as informações do banco de dados em config/config.json e em seguida ex
 $ npm start
 ```
 
-Para utilizar o Swagger acesse a seguinte url: localhost:3000/docs
+Para utilizar o Swagger acesse a seguinte url: [localhost:3000/docs](localhost:3000/docs)
