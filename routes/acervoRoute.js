@@ -8,5 +8,10 @@ router.get(
     */
 
   '/acervo', AcervoControlelr.listaTodoAcervo)
+router.get(
+  /*
+    #swagger.description = 'Rota para listar uma obra por id.'
+    */
+  '/acervo/:id', AcervoControlelr.pegaUmaObra)
 
 module.exports = router
