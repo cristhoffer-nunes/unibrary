@@ -12,6 +12,6 @@ app.use(cors())
 
 routes(app)
 
-app.listen(3000, () => console.log(`Servidor está rodando na porta ${3000}`))
+app.listen(8080, () => console.log(`Servidor está rodando na porta ${3000}`))
 
 module.exports = app
