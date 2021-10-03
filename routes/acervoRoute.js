@@ -1,5 +1,6 @@
 const { Router } = require('express')
-const AcervoControlelr = require('../controllers/AcervoController')
+const AcervoController = require('../controllers/AcervoController')
+const passport = require('passport')
 const router = Router()
 
 router.get(
@@ -7,11 +8,11 @@ router.get(
     #swagger.description = 'Rota para listar todas as obras do acervo.'
     */
 
-  '/acervo', AcervoControlelr.listaTodoAcervo)
+  '/v1/api/acervo', AcervoController.listaTodoAcervo)
 router.get(
   /*
     #swagger.description = 'Rota para listar uma obra por id.'
     */
-  '/acervo/:id', AcervoControlelr.pegaUmaObra)
+  '/v1/api/acervo/:id', passport.authenticate('bearer', { session: false }), AcervoController.pegaUmaObra)
 
 module.exports = router
