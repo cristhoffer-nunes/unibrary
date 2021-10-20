@@ -5,7 +5,7 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "localhost:8080",
   "basePath": "/",
   "tags": [],
   "schemes": [
@@ -14,7 +14,7 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "\r\r\r/acervo": {
+    "\r\r\r/v1/api/acervo": {
       "get": {
         "tags": [],
         "description": "Rota para listar todas as obras do acervo.",
@@ -29,7 +29,7 @@
         }
       }
     },
-    "\r\r/acervo/{id}": {
+    "\r\r/v1/api/acervo/{id}": {
       "get": {
         "tags": [],
         "description": "Rota para listar uma obra por id.",
@@ -47,6 +47,87 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/api/cliente": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/api/cliente/{numeroMatricula}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "numeroMatricula",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/api/auth": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "numeroMatricula": {
+                  "example": "any"
+                },
+                "senha": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
