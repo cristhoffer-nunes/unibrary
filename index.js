@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
+const port = process.env.PORT || 8080
 const routes = require('./routes')
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger/swagger_output.json')
@@ -14,6 +15,6 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 routes(app)
 
-app.listen(8080, () => console.log(`Servidor está rodando na porta ${8080}`))
+app.listen(port, () => console.log('Server is running'))
 
 module.exports = app
