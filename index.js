@@ -17,8 +17,6 @@ app.use(session({ secret: 'MySecretK3y', saveUninitialized: true, resave: true, 
 app.use(passport.initialize())
 app.use(passport.session())
 
-require('./passport/config')
-
 routes(app)
 
 app.listen(8080, () => console.log(`Servidor está rodando na porta ${8080}`))
