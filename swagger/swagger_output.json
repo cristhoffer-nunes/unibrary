@@ -14,10 +14,10 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "\r\r\r/v1/api/acervo": {
+    "/v1/api/acervo": {
       "get": {
         "tags": [],
-        "description": "Rota para listar todas as obras do acervo.",
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
@@ -29,10 +29,10 @@
         }
       }
     },
-    "\r\r/v1/api/acervo/{id}": {
+    "/v1/api/acervo/{id}": {
       "get": {
         "tags": [],
-        "description": "Rota para listar uma obra por id.",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -101,6 +101,28 @@
         }
       }
     },
+    "/v1/api/cliente/{id}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/v1/api/auth": {
       "post": {
         "tags": [],
@@ -112,14 +134,108 @@
             "schema": {
               "type": "object",
               "properties": {
-                "numeroMatricula": {
+                "numeroMatricula\r": {
                   "example": "any"
                 },
-                "senha": {
+                "senha\r": {
                   "example": "any"
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/api/reserva": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "numeroMatricula\r": {
+                  "example": "any"
+                },
+                "obra\r": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/api/reserva/cliente": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "numeroMatricula\r": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/api/reserva/{id}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
