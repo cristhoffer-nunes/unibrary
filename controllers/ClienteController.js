@@ -27,7 +27,6 @@ class ClienteController {
       const senhaCript = bcrypt.hash(dados.senha, 12)
 
       dados.senha = await senhaCript
-      console.log(`Senha 2 ${dados.senha}`)
       const dadosCriado = await database.Clientes.create({
         nome: dados.nome,
         email: dados.email,
@@ -35,7 +34,7 @@ class ClienteController {
         numero_matricula: dados.numero_matricula,
         ativo: dados.ativo,
         rg: dados.rg,
-        cpf: dados.cf,
+        cpf: dados.cpf,
         universidade: dados.universidade,
         unidade: dados.unidade,
         curso: dados.curso,
@@ -46,6 +45,16 @@ class ClienteController {
       return res.status(201).json(dadosCriado)
     } catch (error) {
       return res.status(500).json({ error: error.message })
+    }
+  }
+
+  static async apagaCliente (req, res) {
+    const { id } = req.params
+    try {
+      const apagaCliente = await database.Clientes.destroy({ where: { id: Number(id) } })
+      return res.status(200).json(apagaCliente)
+    } catch (error) {
+      return res.status(400).json(error.message)
     }
   }
 }
