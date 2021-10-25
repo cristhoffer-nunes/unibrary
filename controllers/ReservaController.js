@@ -4,7 +4,6 @@ class ReservaController {
   static async listaTodaReserva (req, res) {
     try {
       const todaReserva = await database.Reserva.findAll()
-      console.log(todaReserva)
       return res.status(200).json(todaReserva)
     } catch (error) {
       return res.status(400).json({ error: error.message })
